@@ -1,0 +1,9 @@
+---
+- name: lxterminal | Apply settings
+  ini_file:
+    path: "{{ lxterminal__config_path }}"
+    section: general
+    option: "{{ item.key }}"
+    value: "{{ item.value }}"
+    no_extra_spaces: yes
+  loop: "{{ lxterminal__settings_general | dict2items }}"
